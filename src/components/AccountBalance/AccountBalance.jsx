@@ -20,19 +20,30 @@ const AccountBalanceText = styled.p`
     `
 
 export default class AccountBalance extends Component {
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick(event) {
+        event.preventDefault()
+        this.props.handleShowBalance(this.props.showBalance)
+    }
+
     render() {
+        const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance'
+        const accountBalanceText = this.props.showBalance ? `Account Balance: $${this.props.amount}` : ''
         return (
             <div>
                 <AccountBalanceContainer>
                     
                         <AccountBalanceText>
-                        Account Balance: ${this.props.amount}
+                        {accountBalanceText}
+                        <button onClick={this.handleClick}>{buttonText}</button>
                         </AccountBalanceText>
                     
                 </AccountBalanceContainer>
             </div>
-            
-            
         )
     }
 }
