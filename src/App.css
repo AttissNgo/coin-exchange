@@ -1,21 +1,21 @@
-.App {
+/* .App {
   text-align: center;
   background-color: rgb(44, 44, 88);
   color: #cccccc;
-}
+} */
 
-.coin-table {
+/* .coin-table {
   margin: 50px auto 50px auto;
   display: inline-block;
   font-size: 1.4rem;
-}
+} */
 
-.App-logo {
+/* .App-logo {
   height: 8rem;
   pointer-events: none;
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 20vh;
   display: flex;
@@ -24,13 +24,13 @@
   justify-content: flex-start;
   font-size: 36px;
   color: white;
-}
+} */
 
-.App-title {
+/* .App-title {
   font-size: 4rem;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
 }
 
@@ -41,4 +41,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
