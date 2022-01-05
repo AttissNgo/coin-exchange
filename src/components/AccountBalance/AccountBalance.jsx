@@ -31,15 +31,15 @@ export default class AccountBalance extends Component {
     }
 
     render() {
-        const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance'
-        const accountBalanceText = this.props.showBalance ? `Account Balance: $${this.props.amount}` : ''
+        // const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance'
+        // const accountBalanceText = this.props.showBalance ? `Account Balance: $${this.props.amount}` : ''
         return (
             <div>
                 <AccountBalanceContainer>
                     
                         <AccountBalanceText>
-                        {accountBalanceText}
-                        <button onClick={this.handleClick}>{buttonText}</button>
+                        {this.props.showBalance ? `Account Balance: $${this.props.amount}` : null}
+                        <button onClick={this.handleClick}>{this.props.showBalance ? 'Hide Balance' : 'Show Balance'}</button>
                         </AccountBalanceText>
                     
                 </AccountBalanceContainer>

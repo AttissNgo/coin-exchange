@@ -25,13 +25,13 @@ export default class Coin extends Component {
     }
 
     render() {
-        const coinBalance = this.props.showBalance ? <CoinRow>${this.props.balance}</CoinRow> : <CoinRowHidden>${this.props.balance}</CoinRowHidden>
+        // const coinBalance = this.props.showBalance ? <CoinRow>{this.props.balance}</CoinRow> : <CoinRowHidden>{this.props.balance}</CoinRowHidden>
         return (
             <tr>
                 <CoinRow>{this.props.name}</CoinRow>
                 <CoinRow>{this.props.ticker}</CoinRow>
                 <CoinRow>${this.props.price}</CoinRow>
-                {coinBalance}
+                {this.props.showBalance ? <CoinRow>{this.props.balance}</CoinRow> : null}
                 <CoinRow>
                     <form action="#" method="POST">
                         <button onClick={this.handleClick}>Refresh</button>

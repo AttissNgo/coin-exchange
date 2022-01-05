@@ -54,13 +54,21 @@ class App extends React.Component {
     this.handleShowBalance = this.handleShowBalance.bind(this)
   }
 
-  handleShowBalance(valueChangeShowBalance) {
-    this.setState({ showBalance:!valueChangeShowBalance })
-    // console.log(!valueChangeShowBalance)
+  // handleShowBalance(valueChangeShowBalance) {
+  //   this.setState({ showBalance:!valueChangeShowBalance })
+  // }
+
+  handleShowBalance() {
+    this.setState( function(oldState) {
+      return {
+        ...oldState,
+        showBalance: !oldState.showBalance
+      }
+    })
   }
 
   handleRefresh(valueChangeTicker) {
-    const newCoinData = this.state.coinData.map(function( {ticker, name, price} ) {
+    const newCoinData = this.state.coinData.map(function( {ticker, name, price, balance} ) {
       let newPrice = price
       if( valueChangeTicker === ticker ) {
         const randomPercentage = 0.995 + Math.random() * 0.01
@@ -69,6 +77,7 @@ class App extends React.Component {
       return {
         ticker,
         name,
+        balance,
         price: newPrice
       }
     })
