@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -7,37 +7,27 @@ const CoinRow = styled.td`
     width: 25vh;
     `
 
-// const CoinRowHidden = styled.td`
-// border: 1px solid #cccccc;
-// width: 25vh;
-//     display: none;
-//     `
+export default function Coin(props) {
 
-export default class Coin extends Component {
-
-    handleClick = (event) => {
+    const handleClick = (event) => {
         event.preventDefault() 
-        // this.props.handleRefresh(this.props.ticker)
-        this.props.handleRefresh(this.props.id)
-        // console.log(this.props.id)
+        props.handleRefresh(props.id)
     }
 
-    render() {
-        // const coinBalance = this.props.showBalance ? <CoinRow>{this.props.balance}</CoinRow> : <CoinRowHidden>{this.props.balance}</CoinRowHidden>
-        return (
-            <tr>
-                <CoinRow>{this.props.name}</CoinRow>
-                <CoinRow>{this.props.ticker}</CoinRow>
-                <CoinRow>${this.props.price}</CoinRow>              
-                {this.props.showBalance ? <CoinRow>{this.props.balance}</CoinRow> : null}
-                <CoinRow>
-                    <form action="#" method="POST">
-                        <button onClick={this.handleClick}>Refresh</button>
-                    </form>
-                </CoinRow>
-            </tr>
-        )
-    }
+    return (
+        <tr>
+            <CoinRow>{props.name}</CoinRow>
+            <CoinRow>{props.ticker}</CoinRow>
+            <CoinRow>${props.price}</CoinRow>              
+            {props.showBalance ? <CoinRow>{props.balance}</CoinRow> : null}
+            <CoinRow>
+                <form action="#" method="POST">
+                    <button onClick={handleClick}>Refresh</button>
+                </form>
+            </CoinRow>
+        </tr>
+    )
+    
 }
 
 Coin.propTypes = {
