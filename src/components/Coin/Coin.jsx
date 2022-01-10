@@ -7,17 +7,19 @@ const CoinRow = styled.td`
     width: 25vh;
     `
 
-const CoinRowHidden = styled.td`
-border: 1px solid #cccccc;
-width: 25vh;
-    display: none;
-    `
+// const CoinRowHidden = styled.td`
+// border: 1px solid #cccccc;
+// width: 25vh;
+//     display: none;
+//     `
 
 export default class Coin extends Component {
 
     handleClick = (event) => {
         event.preventDefault() 
-        this.props.handleRefresh(this.props.ticker)
+        // this.props.handleRefresh(this.props.ticker)
+        this.props.handleRefresh(this.props.id)
+        // console.log(this.props.id)
     }
 
     render() {
@@ -26,7 +28,7 @@ export default class Coin extends Component {
             <tr>
                 <CoinRow>{this.props.name}</CoinRow>
                 <CoinRow>{this.props.ticker}</CoinRow>
-                <CoinRow>${this.props.price}</CoinRow>
+                <CoinRow>${this.props.price}</CoinRow>              
                 {this.props.showBalance ? <CoinRow>{this.props.balance}</CoinRow> : null}
                 <CoinRow>
                     <form action="#" method="POST">
